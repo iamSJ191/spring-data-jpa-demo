@@ -14,27 +14,26 @@ public class SpringDataJpaDemoApplication {
         SpringApplication.run(SpringDataJpaDemoApplication.class, args);
     }
 
-        @Bean
-        CommandLineRunner runner(StudentRepository studentRepository) {
-            return args -> {
-                Faker faker = new Faker();
+    @Bean
+    CommandLineRunner runner(StudentRepository studentRepository) {
+        return args -> {
+            Faker faker = new Faker();
 
-                for (int i = 0; i < 20; i++) {
-                    Student student = new Student(
-                    faker.name().firstName(),
-                    faker.name().lastName(),
-                    faker.name().firstName() + faker.name().lastName()+"@sj.com",
-                    faker.random().nextInt(5,25)
-                    );
+            for (int i = 0; i < 20; i++) {
+                Student student = new Student(
+                        faker.name().firstName(),
+                        faker.name().lastName(),
+                        faker.name().firstName() + faker.name().lastName() + "@sj.com",
+                        faker.random().nextInt(5, 25)
+                );
 
-                    studentRepository.save(student);
-                }
+                studentRepository.save(student);
+            }
 
 
-                studentRepository.findAll().forEach(System.out::println);
+            studentRepository.findAll().forEach(System.out::println);
 
-            };
-
+        };
 
 
     }
