@@ -11,7 +11,7 @@ public class Student {
     @SequenceGenerator(name = "student_sequence", sequenceName = "student_sequence", allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE, generator = "student_sequence")
     @Column(name = "id", updatable = false)
-    private Long id;
+    private Long id; // Primary Key
 
     @Column(name = "first_name", columnDefinition = "TEXT", nullable = false)
     private String firstName;

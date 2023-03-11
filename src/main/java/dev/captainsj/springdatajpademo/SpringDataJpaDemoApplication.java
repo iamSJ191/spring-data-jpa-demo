@@ -8,10 +8,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @SpringBootApplication
 public class SpringDataJpaDemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringDataJpaDemoApplication.class, args);
+
+
     }
 
     @Bean
@@ -27,14 +33,11 @@ public class SpringDataJpaDemoApplication {
                         faker.random().nextInt(5, 25)
                 );
 
+
                 studentRepository.save(student);
             }
 
-
             studentRepository.findAll().forEach(System.out::println);
-
         };
-
-
     }
 }

@@ -10,7 +10,7 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 public class StudentIdCard {
 
     @Id
-    @SequenceGenerator(name = "student_id_card_sequence", sequenceName = "student_id_Card_sequence")
+    @SequenceGenerator(name = "student_id_card_sequence", sequenceName = "student_id_card_sequence")
     @GeneratedValue(strategy = SEQUENCE, generator = "student_id_card_sequence")
     @Column(name = "id")
     private Long id;
@@ -23,6 +23,11 @@ public class StudentIdCard {
     private Student student;
 
     public StudentIdCard() {
+    }
+
+    public StudentIdCard(String cardNumber, Student student) {
+        this.cardNumber = cardNumber;
+        this.student = student;
     }
 
     public Long getId() {
